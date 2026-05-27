@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MTECH — Shared Resources</title>
+  <style>
+    :root {
+      --brand-dark: #0d1b2a;
+      --brand-mid: #1b3a5c;
+      --brand-blue: #1e5fa8;
+      --brand-accent: #2e9cca;
+      --brand-teal: #00b8a9;
+      --text-primary: #1a1a2e;
+      --text-secondary: #4a5568;
+      --surface: #f7f9fc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--surface);
+      color: var(--text-primary);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-mid) 60%, var(--brand-blue) 100%);
+      color: #fff;
+      padding: 64px 40px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 6px 18px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      color: #b3d9f2;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .hero h1 span { color: var(--brand-accent); }
+    .hero p {
+      font-size: 1.05rem;
+      color: #c8dff0;
+      max-width: 520px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ── MAIN ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+      flex: 1;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      margin-bottom: 20px;
+    }
+
+    /* ── PAGE CARDS ── */
+    .pages-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .page-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--brand-blue);
+      border-radius: 12px;
+      padding: 22px 24px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: box-shadow 0.2s, border-left-color 0.2s;
+    }
+    .page-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.09);
+      border-left-color: var(--brand-accent);
+    }
+    .page-card-body {}
+    .page-card-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      margin-bottom: 4px;
+    }
+    .page-card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .page-card-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+    .page-card-arrow {
+      font-size: 1.2rem;
+      color: #cbd5e0;
+      flex-shrink: 0;
+      transition: color 0.2s;
+    }
+    .page-card:hover .page-card-arrow {
+      color: var(--brand-accent);
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      background: var(--brand-dark);
+      color: #8bafc8;
+      text-align: center;
+      padding: 24px;
+      font-size: 0.82rem;
+    }
+    .page-footer strong { color: #fff; }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-eyebrow">MTECH</div>
+  <h1>Shared <span>Resources</span></h1>
+  <p>A collection of pages and documents Alan Barth shares with faculty, staff, and students at MTECH.</p>
+</section>
+
+<main class="container">
+  <div class="section-label">Published Pages</div>
+  <div class="pages-list">
+
+    <a class="page-card" href="ai-product-development.html">
+      <div class="page-card-body">
+        <div class="page-card-tag">Program · Technical Certificate</div>
+        <div class="page-card-title">AI Product Development</div>
+        <div class="page-card-desc">Overview of the 660-hour AI Product Development certificate program, including the core course sequence and three specialization tracks.</div>
+      </div>
+      <div class="page-card-arrow">→</div>
+    </a>
+
+  </div>
+</main>
+
+<footer class="page-footer">
+  <strong>MTECH</strong> &nbsp;·&nbsp; mtec.edu
+</footer>
+
+</body>
+</html>
