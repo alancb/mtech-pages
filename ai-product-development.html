@@ -4,36 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Product Development — Program Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --brand-dark: #0d1b2a;
-      --brand-mid: #1b3a5c;
-      --brand-blue: #1e5fa8;
-      --brand-accent: #2e9cca;
-      --brand-teal: #00b8a9;
-      --brand-gold: #f5a623;
-      --brand-purple: #7c5cbf;
-      --text-primary: #1a1a2e;
-      --text-secondary: #4a5568;
-      --surface: #f7f9fc;
-      --card-bg: #ffffff;
-      --border: #e2e8f0;
+      --maroon: #6D0020;
+      --maroon-dark: #4a0016;
+      --maroon-mid: #8b1a2e;
+      --maroon-light: #f5eaed;
+      --maroon-lighter: #faf2f4;
+      --gray: #C2C2C2;
+      --gray-light: #f4f4f4;
+      --text-primary: #1a1a1a;
+      --text-secondary: #5a5a5a;
+      --white: #ffffff;
+      --border: #e4e4e4;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--surface);
+      font-family: 'Montserrat', sans-serif;
+      background: var(--gray-light);
       color: var(--text-primary);
       line-height: 1.65;
     }
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-mid) 60%, var(--brand-blue) 100%);
+      background-color: var(--maroon);
       color: #fff;
-      padding: 72px 40px 80px;
+      padding: 64px 40px 72px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -42,44 +44,56 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-logo {
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .hero-logo img {
+      height: 36px;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
       border-radius: 20px;
-      padding: 6px 18px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      padding: 5px 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 20px;
-      color: #b3d9f2;
+      margin-bottom: 18px;
+      color: rgba(255,255,255,0.85);
+      position: relative;
     }
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-size: clamp(1.9rem, 5vw, 3rem);
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1.15;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      position: relative;
     }
-    .hero h1 span { color: var(--brand-accent); }
     .hero p {
-      font-size: 1.1rem;
-      color: #c8dff0;
-      max-width: 600px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 560px;
       margin: 0 auto 36px;
+      font-weight: 400;
+      position: relative;
     }
     .hero-stats {
       display: flex;
       justify-content: center;
       gap: 40px;
       flex-wrap: wrap;
+      position: relative;
     }
-    .stat {
-      text-align: center;
-    }
+    .stat { text-align: center; }
     .stat-number {
       font-size: 2.2rem;
       font-weight: 800;
@@ -87,119 +101,120 @@
       line-height: 1;
     }
     .stat-label {
-      font-size: 0.8rem;
-      color: #a0c4e0;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.65);
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-top: 4px;
+      letter-spacing: 0.08em;
+      margin-top: 5px;
+      font-weight: 600;
     }
     .stat-divider {
       width: 1px;
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.25);
       align-self: stretch;
     }
 
-    /* ── MAIN CONTAINER ── */
+    /* ── CONTAINER ── */
     .container {
-      max-width: 1100px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* ── SECTION LABEL ── */
+    /* ── SECTION LABELS ── */
     .section-label {
       text-align: center;
-      margin: 60px 0 12px;
+      margin: 56px 0 10px;
     }
     .section-label .tag {
       display: inline-block;
-      background: #e8f4fd;
-      color: var(--brand-blue);
+      background: var(--maroon-light);
+      color: var(--maroon);
       border-radius: 20px;
       padding: 5px 16px;
-      font-size: 0.78rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
     }
     .section-title {
       text-align: center;
-      font-size: 1.75rem;
-      font-weight: 700;
+      font-size: 1.65rem;
+      font-weight: 800;
       color: var(--text-primary);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .section-sub {
       text-align: center;
       color: var(--text-secondary);
-      font-size: 0.97rem;
-      margin-bottom: 44px;
+      font-size: 0.92rem;
+      margin-bottom: 40px;
+      font-weight: 400;
     }
 
     /* ── PROGRAM FLOW ── */
     .flow-wrapper {
       display: flex;
       align-items: flex-start;
-      gap: 0;
       justify-content: center;
       flex-wrap: wrap;
       margin-bottom: 16px;
+      gap: 0;
     }
     .flow-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 220px;
+      width: 210px;
       text-align: center;
     }
     .flow-circle {
-      width: 80px;
-      height: 80px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       margin-bottom: 12px;
       position: relative;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
     }
     .flow-circle::after {
       content: attr(data-step);
       position: absolute;
-      top: -6px;
-      right: -6px;
-      width: 24px;
-      height: 24px;
+      top: -4px;
+      right: -4px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
-      background: var(--brand-dark);
+      background: var(--maroon-dark);
       color: #fff;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .flow-circle-1 { background: linear-gradient(135deg, #667eea, #764ba2); }
-    .flow-circle-2 { background: linear-gradient(135deg, #1e5fa8, #2e9cca); }
-    .flow-circle-3 { background: linear-gradient(135deg, #00b8a9, #00d2c6); }
-    .flow-circle-4 { background: linear-gradient(135deg, #f5a623, #f7c948); }
+    .flow-circle-1 { background: var(--maroon); }
+    .flow-circle-2 { background: var(--maroon-mid); }
+    .flow-circle-3 { background: #a02035; }
+    .flow-circle-4 { background: var(--maroon-dark); }
     .flow-code {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
-      color: var(--text-secondary);
+      letter-spacing: 0.07em;
+      color: var(--maroon);
       text-transform: uppercase;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .flow-name {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--text-primary);
       line-height: 1.3;
     }
     .flow-meta {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--text-secondary);
       margin-top: 4px;
     }
@@ -207,272 +222,199 @@
       display: flex;
       align-items: center;
       padding: 0 4px;
-      margin-top: -44px;
-      color: #cbd5e0;
-      font-size: 1.4rem;
+      margin-top: -42px;
+      color: var(--gray);
+      font-size: 1.3rem;
+      font-weight: 300;
     }
     @media (max-width: 768px) {
       .flow-arrow { display: none; }
-      .flow-item { width: 160px; }
+      .flow-item { width: 150px; }
     }
-
-    /* ── COURSE CARDS ── */
-    .courses-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      padding-bottom: 80px;
-      align-items: start;
-    }
-    @media (max-width: 700px) {
-      .courses-grid { grid-template-columns: 1fr; }
-    }
-
-    .course-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      border-top: 4px solid transparent;
-      padding: 24px;
-      transition: box-shadow 0.2s;
-    }
-    .course-card:hover {
-      box-shadow: 0 6px 24px rgba(0,0,0,0.09);
-    }
-    .cc-1 { border-top-color: #764ba2; }
-    .cc-2 { border-top-color: var(--brand-blue); }
-    .cc-3 { border-top-color: var(--brand-teal); }
-    .cc-4 { border-top-color: #d4870c; }
-
-    .card-code {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .code-1 { color: #764ba2; }
-    .code-2 { color: var(--brand-blue); }
-    .code-3 { color: var(--brand-teal); }
-    .code-4 { color: #d4870c; }
-
-    .card-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      line-height: 1.25;
-      margin-bottom: 6px;
-    }
-
-    .card-meta {
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      margin-bottom: 14px;
-    }
-
-    .card-tagline {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 18px;
-      font-style: italic;
-    }
-
-    .chip-label {
-      font-size: 0.67rem;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .chip {
-      border-radius: 20px;
-      padding: 4px 11px;
-      font-size: 0.76rem;
-      font-weight: 500;
-    }
-    .chip-1 { background: #f0ecfa; color: #4a2f82; }
-    .chip-2 { background: #e8f1fb; color: #1a4a82; }
-    .chip-3 { background: #e0f5f3; color: #0a5a52; }
-    .chip-4 { background: #fef3e2; color: #8a5000; }
 
     /* ── SPECIALIZATION TRACKS ── */
     .tracks-section {
-      background: #fff;
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      margin-bottom: 56px;
+      border-top: 3px solid var(--maroon);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      margin-bottom: 48px;
     }
     .tracks-header {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+    }
+    .tracks-header-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--maroon-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
     }
     .tracks-header-text h3 {
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: var(--text-primary);
     }
     .tracks-header-text p {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--text-secondary);
-      margin-top: 2px;
+      margin-top: 1px;
     }
     .tracks-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 14px;
     }
     @media (max-width: 640px) {
       .tracks-grid { grid-template-columns: 1fr; }
     }
     .track-card {
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      background: var(--surface);
+      border-radius: 10px;
+      padding: 18px;
+      background: var(--gray-light);
     }
     .track-card-top {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .track-icon {
-      font-size: 1.4rem;
+      gap: 8px;
+      margin-bottom: 6px;
     }
     .track-name {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: var(--text-primary);
     }
     .track-hours {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-secondary);
+      margin-bottom: 8px;
       font-weight: 500;
-      margin-bottom: 10px;
     }
     .track-desc {
-      font-size: 0.83rem;
+      font-size: 0.8rem;
       color: var(--text-secondary);
       line-height: 1.55;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .track-roles {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 5px;
     }
     .track-role {
-      background: #fff;
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 3px 10px;
-      font-size: 0.73rem;
+      padding: 2px 10px;
+      font-size: 0.7rem;
       color: var(--text-secondary);
-      font-weight: 500;
-    }
-
-    /* ── CARD ACCORDION ── */
-    .card-toggle {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-      background: none;
-      border-bottom: none;
-      border-left: none;
-      border-right: none;
-      cursor: pointer;
-      font-size: 0.8rem;
       font-weight: 600;
-      color: var(--text-secondary);
-      width: 100%;
-      text-align: left;
-      transition: color 0.15s;
     }
-    .card-toggle:hover { color: var(--brand-blue); }
-    .card-toggle .chevron {
-      margin-left: auto;
-      transition: transform 0.25s ease;
-      font-style: normal;
-      font-size: 0.75rem;
-    }
-    .card-toggle.open .chevron { transform: rotate(180deg); }
 
-    .card-details {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
+    /* ── COURSE CARDS ── */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      padding-bottom: 72px;
     }
-    .card-details.open { max-height: 600px; }
+    @media (max-width: 700px) {
+      .courses-grid { grid-template-columns: 1fr; }
+    }
 
-    .details-inner {
-      padding-top: 16px;
+    .course-card {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--maroon);
+      padding: 22px;
+      transition: box-shadow 0.2s;
     }
-    .details-desc {
-      font-size: 0.86rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-bottom: 14px;
+    .course-card:hover {
+      box-shadow: 0 6px 24px rgba(109, 0, 32, 0.1);
     }
-    .details-label {
-      font-size: 0.67rem;
+
+    .card-code {
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: var(--text-secondary);
+      color: var(--maroon);
+      margin-bottom: 5px;
+    }
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.25;
       margin-bottom: 8px;
     }
-    .details-objectives {
-      list-style: none;
+    .card-tagline {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .chip-label {
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 7px;
+    }
+    .chips {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 6px;
     }
-    .details-objectives li {
-      font-size: 0.83rem;
-      color: var(--text-primary);
-      padding-left: 16px;
-      position: relative;
-      line-height: 1.5;
-    }
-    .details-objectives li::before {
-      content: '›';
-      position: absolute;
-      left: 0;
-      color: var(--text-secondary);
-      font-weight: 700;
+    .chip {
+      background: var(--maroon-light);
+      color: var(--maroon-dark);
+      border-radius: 20px;
+      padding: 4px 11px;
+      font-size: 0.73rem;
+      font-weight: 600;
     }
 
     /* ── FOOTER ── */
     .page-footer {
-      background: var(--brand-dark);
-      color: #8bafc8;
+      background: var(--maroon);
+      color: rgba(255,255,255,0.65);
       text-align: center;
       padding: 24px;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
+      font-weight: 500;
     }
     .page-footer strong { color: #fff; }
+    .footer-logo {
+      margin-bottom: 10px;
+    }
+    .footer-logo img {
+      height: 28px;
+      filter: brightness(0) invert(1);
+      opacity: 0.75;
+    }
   </style>
 </head>
 <body>
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-logo">
+    <img src="https://mtec.edu/wp-content/uploads/2021/10/MTECH_full-logo.svg" alt="MTECH — Mountainland Technical College" />
+  </div>
   <div class="hero-badge">Technical Certificate · Catalog Year 2027</div>
-  <h1>AI <span>Product Development</span></h1>
+  <h1>AI Product Development</h1>
   <p>A hands-on technical certificate that takes students from zero to building and deploying real AI-powered software.</p>
   <div class="hero-stats">
     <div class="stat">
@@ -494,7 +436,7 @@
 
 <!-- PROGRAM FLOW -->
 <div class="container">
-  <div class="section-label" style="margin-top: 56px;">
+  <div class="section-label" style="margin-top: 52px;">
     <span class="tag">Course Sequence</span>
   </div>
   <div class="section-title">How the Program Flows</div>
@@ -511,7 +453,7 @@
     <div class="flow-item">
       <div class="flow-circle flow-circle-2" data-step="2">🏗️</div>
       <div class="flow-code">TEAI 1010</div>
-      <div class="flow-name">Software Systems & Architecture</div>
+      <div class="flow-name">Software Systems &amp; Architecture</div>
       <div class="flow-meta">3 credits · 90 hours</div>
     </div>
     <div class="flow-arrow">→</div>
@@ -525,7 +467,7 @@
     <div class="flow-item">
       <div class="flow-circle flow-circle-4" data-step="4">🤖</div>
       <div class="flow-code">TEAI 1040</div>
-      <div class="flow-name">AI Agents & Automation</div>
+      <div class="flow-name">AI Agents &amp; Automation</div>
       <div class="flow-meta">4 credits · 120 hours</div>
     </div>
   </div>
@@ -533,7 +475,7 @@
   <!-- SPECIALIZATION TRACKS -->
   <div class="tracks-section">
     <div class="tracks-header">
-      <div style="font-size:1.5rem;">🎓</div>
+      <div class="tracks-header-icon">🎓</div>
       <div class="tracks-header-text">
         <h3>After the Core — Choose a Specialization Track</h3>
         <p>Students complete one 300-hour track following the foundation core, for a total of 660 hours.</p>
@@ -542,7 +484,7 @@
     <div class="tracks-grid">
       <div class="track-card">
         <div class="track-card-top">
-          <span class="track-icon">🎨</span>
+          <span style="font-size:1.2rem;">🎨</span>
           <span class="track-name">Design</span>
         </div>
         <div class="track-hours">300 hours · AI Product Development: Design</div>
@@ -555,7 +497,7 @@
       </div>
       <div class="track-card">
         <div class="track-card-top">
-          <span class="track-icon">🌐</span>
+          <span style="font-size:1.2rem;">🌐</span>
           <span class="track-name">Web</span>
         </div>
         <div class="track-hours">300 hours · AI Product Development: Web</div>
@@ -568,7 +510,7 @@
       </div>
       <div class="track-card">
         <div class="track-card-top">
-          <span class="track-icon">📱</span>
+          <span style="font-size:1.2rem;">📱</span>
           <span class="track-name">iOS</span>
         </div>
         <div class="track-hours">300 hours · AI Product Development: iOS</div>
@@ -582,7 +524,7 @@
   </div>
 
   <!-- COURSE CARDS -->
-  <div class="section-label">
+  <div class="section-label" style="margin-top: 0;">
     <span class="tag">Core Courses</span>
   </div>
   <div class="section-title">Foundation Curriculum</div>
@@ -590,150 +532,74 @@
 
   <div class="courses-grid">
 
-    <!-- CARD 1 -->
-    <div class="course-card cc-1">
-      <div class="card-code code-1">TEAI 1000 &nbsp;·&nbsp; 1 credit &nbsp;·&nbsp; 30 hours</div>
+    <div class="course-card">
+      <div class="card-code">TEAI 1000 &nbsp;·&nbsp; 1 credit &nbsp;·&nbsp; 30 hours</div>
       <div class="card-title">Introduction to AI Product Development</div>
       <p class="card-tagline">Understand the landscape, meet the team, and ship your first AI-assisted website.</p>
       <div class="chip-label">What students learn</div>
       <div class="chips">
-        <span class="chip chip-1">How AI works</span>
-        <span class="chip chip-1">AI limitations</span>
-        <span class="chip chip-1">Tech team roles</span>
-        <span class="chip chip-1">Prompt basics</span>
-        <span class="chip chip-1">Build a website</span>
-      </div>
-      <button class="card-toggle" onclick="toggleCard(this)">
-        View course details <span class="chevron">▼</span>
-      </button>
-      <div class="card-details">
-        <div class="details-inner">
-          <p class="details-desc">This orientation course gives students a clear-eyed picture of the AI landscape before they write a single line of code. They'll learn how large language models actually work, where AI falls short, and what roles make up a modern software team — then put it all together by building and publishing their first AI-assisted website.</p>
-          <div class="details-label">Course objectives</div>
-          <ul class="details-objectives">
-            <li>Explain how large language models generate output and where that process can go wrong</li>
-            <li>Identify the capabilities and real-world limitations of current AI tools</li>
-            <li>Describe the roles on a software product team and how they collaborate</li>
-            <li>Write clear, effective prompts to direct AI tools toward a specific outcome</li>
-            <li>Build and publish a basic website using AI-assisted development</li>
-          </ul>
-        </div>
+        <span class="chip">How AI works</span>
+        <span class="chip">AI limitations</span>
+        <span class="chip">Tech team roles</span>
+        <span class="chip">Prompt basics</span>
+        <span class="chip">Build a website</span>
       </div>
     </div>
 
-    <!-- CARD 2 -->
-    <div class="course-card cc-2">
-      <div class="card-code code-2">TEAI 1010 &nbsp;·&nbsp; 3 credits &nbsp;·&nbsp; 90 hours</div>
+    <div class="course-card">
+      <div class="card-code">TEAI 1010 &nbsp;·&nbsp; 3 credits &nbsp;·&nbsp; 90 hours</div>
       <div class="card-title">Software Systems and Architecture</div>
       <p class="card-tagline">Learn to read software before you build it — how systems are designed, wired together, and why.</p>
       <div class="chip-label">What students learn</div>
       <div class="chips">
-        <span class="chip chip-2">Computer architecture</span>
-        <span class="chip chip-2">Data structures</span>
-        <span class="chip chip-2">How the internet works</span>
-        <span class="chip chip-2">APIs & data flow</span>
-        <span class="chip chip-2">System design patterns</span>
-        <span class="chip chip-2">Data privacy</span>
-      </div>
-      <button class="card-toggle" onclick="toggleCard(this)">
-        View course details <span class="chevron">▼</span>
-      </button>
-      <div class="card-details">
-        <div class="details-inner">
-          <p class="details-desc">Before students can build software confidently, they need to understand how it actually works under the hood. This course covers the conceptual foundations — from how a computer processes instructions to how data moves across the internet — so students can make informed decisions when designing and building their own systems.</p>
-          <div class="details-label">Course objectives</div>
-          <ul class="details-objectives">
-            <li>Describe how computer hardware components work together to run software</li>
-            <li>Identify common data structures and explain when each is appropriate</li>
-            <li>Trace a web request from browser to server and back, naming each step</li>
-            <li>Read and use a REST API, including authentication and JSON data handling</li>
-            <li>Apply common architectural patterns when planning a software system</li>
-            <li>Recognize data privacy risks and apply basic mitigation strategies</li>
-          </ul>
-        </div>
+        <span class="chip">Computer architecture</span>
+        <span class="chip">Data structures</span>
+        <span class="chip">How the internet works</span>
+        <span class="chip">APIs &amp; data flow</span>
+        <span class="chip">System design</span>
+        <span class="chip">Data privacy</span>
       </div>
     </div>
 
-    <!-- CARD 3 -->
-    <div class="course-card cc-3">
-      <div class="card-code code-3">TEAI 1020 &nbsp;·&nbsp; 4 credits &nbsp;·&nbsp; 120 hours</div>
+    <div class="course-card">
+      <div class="card-code">TEAI 1020 &nbsp;·&nbsp; 4 credits &nbsp;·&nbsp; 120 hours</div>
       <div class="card-title">Software Development with AI</div>
       <p class="card-tagline">Go from understanding systems to building them — two real projects using AI as a core tool.</p>
       <div class="chip-label">What students learn</div>
       <div class="chips">
-        <span class="chip chip-3">Dev environment setup</span>
-        <span class="chip chip-3">Write real code</span>
-        <span class="chip chip-3">AI coding assistants</span>
-        <span class="chip chip-3">Prompt engineering</span>
-        <span class="chip chip-3">Evaluate AI output</span>
-        <span class="chip chip-3">Ship projects</span>
-      </div>
-      <button class="card-toggle" onclick="toggleCard(this)">
-        View course details <span class="chevron">▼</span>
-      </button>
-      <div class="card-details">
-        <div class="details-inner">
-          <p class="details-desc">This is where students start writing real software. They set up a professional development environment, learn to code in a modern language, and use AI coding assistants as everyday tools rather than shortcuts. The course culminates in two complete projects — one guided, one independent — that students can add to a portfolio.</p>
-          <div class="details-label">Course objectives</div>
-          <ul class="details-objectives">
-            <li>Configure a local development environment including terminal, editor, and version control</li>
-            <li>Write functional programs using core language constructs such as variables, loops, and functions</li>
-            <li>Use AI coding assistants to accelerate development without losing code comprehension</li>
-            <li>Craft precise prompts that produce accurate, usable code from an AI model</li>
-            <li>Review and debug AI-generated code to verify it behaves as intended</li>
-            <li>Manage a project with Git and deliver two complete, deployable software projects</li>
-          </ul>
-        </div>
+        <span class="chip">Dev environment setup</span>
+        <span class="chip">Write real code</span>
+        <span class="chip">AI coding assistants</span>
+        <span class="chip">Prompt engineering</span>
+        <span class="chip">Evaluate AI output</span>
+        <span class="chip">Ship projects</span>
       </div>
     </div>
 
-    <!-- CARD 4 -->
-    <div class="course-card cc-4">
-      <div class="card-code code-4">TEAI 1040 &nbsp;·&nbsp; 4 credits &nbsp;·&nbsp; 120 hours</div>
+    <div class="course-card">
+      <div class="card-code">TEAI 1040 &nbsp;·&nbsp; 4 credits &nbsp;·&nbsp; 120 hours</div>
       <div class="card-title">AI Agents and Automation</div>
       <p class="card-tagline">Design and deploy agentic AI systems — from no-code workflows to full agent frameworks.</p>
       <div class="chip-label">What students learn</div>
       <div class="chips">
-        <span class="chip chip-4">No-code automation</span>
-        <span class="chip chip-4">APIs & webhooks</span>
-        <span class="chip chip-4">Agent design</span>
-        <span class="chip chip-4">Multi-step workflows</span>
-        <span class="chip chip-4">Debug & test agents</span>
-        <span class="chip chip-4">Responsible AI</span>
-      </div>
-      <button class="card-toggle" onclick="toggleCard(this)">
-        View course details <span class="chevron">▼</span>
-      </button>
-      <div class="card-details">
-        <div class="details-inner">
-          <p class="details-desc">Students move beyond writing code that runs once and start building systems that act on their own. Starting with no-code automation tools and progressing to full agent frameworks, this course teaches how to design AI-driven workflows that connect services, make decisions, and run with minimal human involvement — responsibly.</p>
-          <div class="details-label">Course objectives</div>
-          <ul class="details-objectives">
-            <li>Build multi-step automations using no-code tools that connect real services</li>
-            <li>Integrate external APIs and webhooks into automated workflows</li>
-            <li>Design an agentic system with clear goals, tools, and decision logic</li>
-            <li>Implement a working agent using a modern agent framework</li>
-            <li>Test, debug, and monitor an agent's behavior in a production-like environment</li>
-            <li>Evaluate an AI system for safety, bias, and unintended consequences</li>
-          </ul>
-        </div>
+        <span class="chip">No-code automation</span>
+        <span class="chip">APIs &amp; webhooks</span>
+        <span class="chip">Agent design</span>
+        <span class="chip">Multi-step workflows</span>
+        <span class="chip">Debug &amp; test agents</span>
+        <span class="chip">Responsible AI</span>
       </div>
     </div>
 
-  </div><!-- /courses-grid -->
-</div><!-- /container -->
+  </div>
+</div>
 
 <footer class="page-footer">
-  <strong>MTECH — AI Product Development Program</strong> &nbsp;·&nbsp; 360-Hour Foundation Core + 300-Hour Specialization Track &nbsp;·&nbsp; 660 Hours Total
+  <div class="footer-logo">
+    <img src="https://mtec.edu/wp-content/uploads/2021/10/MTECH_full-logo.svg" alt="MTECH" />
+  </div>
+  <strong>AI Product Development Program</strong> &nbsp;·&nbsp; 360-Hour Foundation Core + 300-Hour Specialization Track &nbsp;·&nbsp; 660 Hours Total
 </footer>
 
-<script>
-  function toggleCard(btn) {
-    const details = btn.nextElementSibling;
-    const open = details.classList.toggle('open');
-    btn.classList.toggle('open', open);
-    btn.childNodes[0].textContent = open ? 'Hide course details ' : 'View course details ';
-  }
-</script>
 </body>
 </html>
