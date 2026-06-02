@@ -153,13 +153,30 @@
     }
 
     /* ── PROGRAM FLOW ── */
+    .flow-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--maroon);
+      border-radius: 12px;
+      padding: 36px 28px 32px;
+      margin-bottom: 16px;
+    }
     .flow-wrapper {
       display: flex;
       align-items: flex-start;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 16px;
+      position: relative;
       gap: 0;
+    }
+    .flow-track {
+      position: absolute;
+      top: 36px;
+      left: calc(105px + 2px);
+      right: calc(105px + 2px);
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
     }
     .flow-item {
       display: flex;
@@ -167,6 +184,8 @@
       align-items: center;
       width: 210px;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
     .flow-circle {
       width: 72px;
@@ -176,8 +195,9 @@
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       position: relative;
+      box-shadow: 0 0 0 4px var(--white), 0 4px 16px rgba(0,0,0,0.12);
     }
     .flow-circle::after {
       content: attr(data-step);
@@ -201,26 +221,18 @@
     .flow-circle-4 { background: linear-gradient(135deg, #f5a623, #f7c948); }
     .flow-name {
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-primary);
       line-height: 1.3;
     }
     .flow-meta {
-      font-size: 0.75rem;
+      font-size: 0.73rem;
       color: var(--text-secondary);
-      margin-top: 4px;
-    }
-    .flow-arrow {
-      display: flex;
-      align-items: center;
-      padding: 0 4px;
-      margin-top: 24px;
-      color: var(--gray);
-      font-size: 1.3rem;
-      font-weight: 300;
+      margin-top: 5px;
+      font-weight: 500;
     }
     @media (max-width: 768px) {
-      .flow-arrow { display: none; }
+      .flow-track { display: none; }
       .flow-item { width: 150px; }
     }
 
@@ -503,41 +515,44 @@
 <!-- PROGRAM FLOW -->
 <div class="container">
   <div class="section-label" style="margin-top: 52px;">
-    <span class="tag">Course Sequence</span>
+    <span class="tag" style="font-size: 0.85rem; padding: 8px 22px;">Program Flow</span>
   </div>
-  <div class="section-title">How the Program Flows</div>
-  <div class="section-sub">Each course builds directly on the last — students finish ready to ship production AI software.</div>
 
-  <div class="flow-wrapper">
-    <div class="flow-item">
-      <div class="flow-circle flow-circle-1" data-step="1">🧭</div>
-      <div class="flow-name">Introduction to AI Product Development</div>
-      <div class="flow-meta">1 credit · 30 hours</div>
+  <div class="flow-card">
+    <div class="tracks-header">
+      <div class="tracks-header-text">
+        <h3>Core Course Sequence</h3>
+        <p>Students complete all four courses in order, building AI knowledge and real project experience along the way.</p>
+      </div>
     </div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-item">
-      <div class="flow-circle flow-circle-2" data-step="2">🏗️</div>
-      <div class="flow-name">Software Systems &amp; Architecture</div>
-      <div class="flow-meta">3 credits · 90 hours</div>
+    <div class="flow-wrapper">
+      <div class="flow-track"></div>
+      <div class="flow-item">
+        <div class="flow-circle flow-circle-1" data-step="1">🧭</div>
+        <div class="flow-name">Introduction to AI Product Development</div>
+        <div class="flow-meta">1 credit · 30 hours</div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-circle flow-circle-2" data-step="2">🏗️</div>
+        <div class="flow-name">Software Systems &amp; Architecture</div>
+        <div class="flow-meta">3 credits · 90 hours</div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-circle flow-circle-3" data-step="3">💻</div>
+        <div class="flow-name">Software Development with AI</div>
+        <div class="flow-meta">4 credits · 120 hours</div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-circle flow-circle-4" data-step="4">🤖</div>
+        <div class="flow-name">AI Agents &amp; Automation</div>
+        <div class="flow-meta">4 credits · 120 hours</div>
+      </div>
     </div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-item">
-      <div class="flow-circle flow-circle-3" data-step="3">💻</div>
-      <div class="flow-name">Software Development with AI</div>
-      <div class="flow-meta">4 credits · 120 hours</div>
-    </div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-item">
-      <div class="flow-circle flow-circle-4" data-step="4">🤖</div>
-      <div class="flow-name">AI Agents &amp; Automation</div>
-      <div class="flow-meta">4 credits · 120 hours</div>
-    </div>
-  </div>
+  </div><!-- /flow-card -->
 
   <!-- SPECIALIZATION TRACKS -->
   <div class="tracks-section">
     <div class="tracks-header">
-      <div class="tracks-header-icon">🎓</div>
       <div class="tracks-header-text">
         <h3>After the Core — Choose a Specialization Track</h3>
         <p>Students complete one 300-hour track following the foundation core, for a total of 660 hours.</p>
@@ -587,10 +602,8 @@
 
   <!-- COURSE CARDS -->
   <div class="section-label" style="margin-top: 0;">
-    <span class="tag">Core Courses</span>
+    <span class="tag" style="font-size: 0.85rem; padding: 8px 22px;">Core Courses</span>
   </div>
-  <div class="section-title">Foundation Curriculum</div>
-  <div class="section-sub">All students complete these four courses before choosing a specialization track.</div>
 
   <div class="courses-grid">
 
@@ -611,7 +624,7 @@
       </button>
       <div class="card-details">
         <div class="details-inner">
-          <p class="details-desc">This orientation course gives students a clear-eyed picture of the AI landscape before they write a single line of code. They'll learn how large language models actually work, where AI falls short, and what roles make up a modern software team — then put it all together by building and publishing their first AI-assisted website.</p>
+          <p class="details-desc">This orientation course gives students a picture of the AI landscape before they write a single line of code. They'll learn how large language models actually work, where AI falls short, and what roles make up a modern software team. Finally, students put it all together by building and publishing their first AI-assisted website.</p>
           <div class="details-label">Course objectives</div>
           <ul class="details-objectives">
             <li>Explain how large language models generate output and where that process can go wrong</li>
@@ -627,12 +640,11 @@
     <div class="course-card">
       <div class="card-code">3 credits &nbsp;·&nbsp; 90 hours</div>
       <div class="card-title">Software Systems and Architecture</div>
-      <p class="card-tagline">Learn to read software before you build it — how systems are designed, wired together, and why.</p>
+      <p class="card-tagline">Learn to read software before you build it, how systems are designed, wired together, and why.</p>
       <div class="chip-label">What students learn</div>
       <div class="chips">
         <span class="chip">Computer architecture</span>
         <span class="chip">Data structures</span>
-        <span class="chip">How the internet works</span>
         <span class="chip">APIs &amp; data flow</span>
         <span class="chip">System design</span>
         <span class="chip">Data privacy</span>
@@ -642,14 +654,13 @@
       </button>
       <div class="card-details">
         <div class="details-inner">
-          <p class="details-desc">Before students can build software confidently, they need to understand how it actually works under the hood. This course covers the conceptual foundations — from how a computer processes instructions to how data moves across the internet — so students can make informed decisions when designing and building their own systems.</p>
+          <p class="details-desc">Before students can build software confidently, they need to understand how it actually works under the hood. This course covers the conceptual foundations from how a computer processes instructions to how data moves across the internet. This foundation sets students up so they can make informed decisions when designing and building their own systems.</p>
           <div class="details-label">Course objectives</div>
           <ul class="details-objectives">
             <li>Describe how computer hardware components work together to run software</li>
             <li>Identify common data structures and explain when each is appropriate</li>
             <li>Trace a web request from browser to server and back, naming each step</li>
             <li>Read and use a REST API, including authentication and JSON data handling</li>
-            <li>Apply common architectural patterns when planning a software system</li>
             <li>Recognize data privacy risks and apply basic mitigation strategies</li>
           </ul>
         </div>
@@ -659,7 +670,7 @@
     <div class="course-card">
       <div class="card-code">4 credits &nbsp;·&nbsp; 120 hours</div>
       <div class="card-title">Software Development with AI</div>
-      <p class="card-tagline">Go from understanding systems to building them — two real projects using AI as a core tool.</p>
+      <p class="card-tagline">Go from understanding systems to building them, two real projects using AI as a core tool.</p>
       <div class="chip-label">What students learn</div>
       <div class="chips">
         <span class="chip">Dev environment setup</span>
@@ -674,14 +685,13 @@
       </button>
       <div class="card-details">
         <div class="details-inner">
-          <p class="details-desc">This is where students start writing real software. They set up a professional development environment, learn to code in a modern language, and use AI coding assistants as everyday tools rather than shortcuts. The course culminates in two complete projects — one guided, one independent — that students can add to a portfolio.</p>
+          <p class="details-desc">This is where students start writing real software. They set up a professional development environment, learn to code in a modern language, and use AI coding assistants as everyday tools rather than shortcuts. The course culminates in two complete projects, one guided and one independent, that students can add to a portfolio.</p>
           <div class="details-label">Course objectives</div>
           <ul class="details-objectives">
             <li>Configure a local development environment including terminal, editor, and version control</li>
-            <li>Write functional programs using core language constructs such as variables, loops, and functions</li>
-            <li>Use AI coding assistants to accelerate development without losing code comprehension</li>
+            <li>Use AI coding assistants to accelerate development</li>
             <li>Craft precise prompts that produce accurate, usable code from an AI model</li>
-            <li>Review and debug AI-generated code to verify it behaves as intended</li>
+            <li>Review AI-generated code to verify it behaves as intended</li>
             <li>Manage a project with Git and deliver two complete, deployable software projects</li>
           </ul>
         </div>
@@ -691,7 +701,7 @@
     <div class="course-card">
       <div class="card-code">4 credits &nbsp;·&nbsp; 120 hours</div>
       <div class="card-title">AI Agents and Automation</div>
-      <p class="card-tagline">Design and deploy agentic AI systems — from no-code workflows to full agent frameworks.</p>
+      <p class="card-tagline">Design and deploy agentic AI systems from no-code workflows to full agent frameworks.</p>
       <div class="chip-label">What students learn</div>
       <div class="chips">
         <span class="chip">No-code automation</span>
@@ -706,7 +716,7 @@
       </button>
       <div class="card-details">
         <div class="details-inner">
-          <p class="details-desc">Students move beyond writing code that runs once and start building systems that act on their own. Starting with no-code automation tools and progressing to full agent frameworks, this course teaches how to design AI-driven workflows that connect services, make decisions, and run with minimal human involvement — responsibly.</p>
+          <p class="details-desc">Students move beyond writing code that runs once and start building systems that act on their own. Starting with no-code automation tools and progressing to full agent frameworks, this course teaches how to design AI-driven workflows that connect services, make decisions, and run with minimal human involvement.</p>
           <div class="details-label">Course objectives</div>
           <ul class="details-objectives">
             <li>Build multi-step automations using no-code tools that connect real services</li>
