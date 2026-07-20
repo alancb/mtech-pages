@@ -169,15 +169,6 @@
       position: relative;
       gap: 0;
     }
-    .flow-track {
-      position: absolute;
-      top: 36px;
-      left: calc(105px + 2px);
-      right: calc(105px + 2px);
-      height: 2px;
-      background: var(--border);
-      z-index: 0;
-    }
     .flow-item {
       display: flex;
       flex-direction: column;
@@ -199,26 +190,11 @@
       position: relative;
       box-shadow: 0 0 0 4px var(--white), 0 4px 16px rgba(0,0,0,0.12);
     }
-    .flow-circle::after {
-      content: attr(data-step);
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--maroon-dark);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
     .flow-circle-1 { background: linear-gradient(135deg, #667eea, #764ba2); }
     .flow-circle-2 { background: linear-gradient(135deg, #1e5fa8, #2e9cca); }
     .flow-circle-3 { background: linear-gradient(135deg, #00b8a9, #00d2c6); }
     .flow-circle-4 { background: linear-gradient(135deg, #f5a623, #f7c948); }
+    .flow-circle-5 { background: linear-gradient(135deg, #e0526e, #f28aa1); }
     .flow-name {
       font-size: 0.85rem;
       font-weight: 700;
@@ -232,7 +208,6 @@
       font-weight: 500;
     }
     @media (max-width: 768px) {
-      .flow-track { display: none; }
       .flow-item { width: 150px; }
     }
 
@@ -426,7 +401,7 @@
       overflow: hidden;
       transition: max-height 0.3s ease;
     }
-    .card-details.open { max-height: 600px; }
+    .card-details.open { max-height: 1400px; }
 
     .details-inner { padding-top: 16px; }
     .details-desc {
@@ -464,6 +439,29 @@
       font-weight: 700;
     }
 
+    /* ── DOWNLOAD CTA ── */
+    .download-cta {
+      text-align: center;
+      padding-bottom: 72px;
+    }
+    .download-btn {
+      display: inline-block;
+      background: var(--maroon);
+      color: #fff;
+      border-radius: 8px;
+      padding: 12px 26px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--maroon-dark); }
+    .download-note {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 8px;
+    }
+
     /* ── FOOTER ── */
     .page-footer {
       background: var(--maroon);
@@ -495,12 +493,12 @@
   <p>A hands-on technical certificate that takes students from zero to building and deploying real AI-powered software.</p>
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-number">660</div>
+      <div class="stat-number">720</div>
       <div class="stat-label">Program Hours</div>
     </div>
     <div class="stat-divider"></div>
     <div class="stat">
-      <div class="stat-number">22</div>
+      <div class="stat-number">24</div>
       <div class="stat-label">Credits</div>
     </div>
     <div class="stat-divider"></div>
@@ -521,29 +519,33 @@
   <div class="flow-card">
     <div class="tracks-header">
       <div class="tracks-header-text">
-        <h3>Core Course Sequence</h3>
-        <p>Students complete all four courses in order, building AI knowledge and real project experience along the way.</p>
+        <h3>Core Courses</h3>
+        <p>Every student completes the same five core courses, building AI knowledge and real project experience along the way.</p>
       </div>
     </div>
     <div class="flow-wrapper">
-      <div class="flow-track"></div>
       <div class="flow-item">
-        <div class="flow-circle flow-circle-1" data-step="1">🧭</div>
+        <div class="flow-circle flow-circle-1">🧭</div>
         <div class="flow-name">Introduction to AI Product Development</div>
         <div class="flow-meta">1 credit · 30 hours</div>
       </div>
       <div class="flow-item">
-        <div class="flow-circle flow-circle-2" data-step="2">🏗️</div>
+        <div class="flow-circle flow-circle-2">🧩</div>
+        <div class="flow-name">Product Thinking and Planning</div>
+        <div class="flow-meta">2 credits · 60 hours</div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-circle flow-circle-3">🏗️</div>
         <div class="flow-name">Software Systems &amp; Architecture</div>
+        <div class="flow-meta">2 credits · 60 hours</div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-circle flow-circle-4">💻</div>
+        <div class="flow-name">Software Development with AI</div>
         <div class="flow-meta">3 credits · 90 hours</div>
       </div>
       <div class="flow-item">
-        <div class="flow-circle flow-circle-3" data-step="3">💻</div>
-        <div class="flow-name">Software Development with AI</div>
-        <div class="flow-meta">4 credits · 120 hours</div>
-      </div>
-      <div class="flow-item">
-        <div class="flow-circle flow-circle-4" data-step="4">🤖</div>
+        <div class="flow-circle flow-circle-5">🤖</div>
         <div class="flow-name">AI Agents &amp; Automation</div>
         <div class="flow-meta">4 credits · 120 hours</div>
       </div>
@@ -555,7 +557,7 @@
     <div class="tracks-header">
       <div class="tracks-header-text">
         <h3>After the Core — Choose a Specialization Track</h3>
-        <p>Students complete one 300-hour track following the foundation core, for a total of 660 hours.</p>
+        <p>Students complete one 360-hour track following the foundation core, for a total of 720 hours.</p>
       </div>
     </div>
     <div class="tracks-grid">
@@ -564,7 +566,7 @@
           <span style="font-size:1.2rem;">🎨</span>
           <span class="track-name">Design</span>
         </div>
-        <div class="track-hours">300 hours · AI Product Development: Design</div>
+        <div class="track-hours">360 hours · AI Product Development: Design</div>
         <p class="track-desc">Focuses on shaping what gets built — product thinking, UX fundamentals, AI-assisted UI/UX design, product roadmapping, user research, and agile product development.</p>
         <div class="track-roles">
           <span class="track-role">Product Designer</span>
@@ -577,7 +579,7 @@
           <span style="font-size:1.2rem;">🌐</span>
           <span class="track-name">Web</span>
         </div>
-        <div class="track-hours">300 hours · AI Product Development: Web</div>
+        <div class="track-hours">360 hours · AI Product Development: Web</div>
         <p class="track-desc">Focuses on building web applications — AI-accelerated front-end development, back-end and API engineering, cloud deployment, web performance, and a full-stack capstone.</p>
         <div class="track-roles">
           <span class="track-role">Web Developer</span>
@@ -590,7 +592,7 @@
           <span style="font-size:1.2rem;">📱</span>
           <span class="track-name">iOS</span>
         </div>
-        <div class="track-hours">300 hours · AI Product Development: iOS</div>
+        <div class="track-hours">360 hours · AI Product Development: iOS</div>
         <p class="track-desc">Focuses on building native iOS applications — iOS development concepts, AI features in mobile apps, App Store publishing and QA, and a mobile capstone project.</p>
         <div class="track-roles">
           <span class="track-role">iOS Developer</span>
@@ -608,7 +610,7 @@
   <div class="courses-grid">
 
     <div class="course-card">
-      <div class="card-code">1 credit &nbsp;·&nbsp; 30 hours</div>
+      <div class="card-code">TEAI 1000 &nbsp;·&nbsp; 1 credit &nbsp;·&nbsp; 30 hours</div>
       <div class="card-title">Introduction to AI Product Development</div>
       <p class="card-tagline">Understand the landscape, meet the team, and ship your first AI-assisted website.</p>
       <div class="chip-label">What students learn</div>
@@ -616,7 +618,7 @@
         <span class="chip">How AI works</span>
         <span class="chip">AI limitations</span>
         <span class="chip">Tech team roles</span>
-        <span class="chip">Prompt basics</span>
+        <span class="chip">Company structure</span>
         <span class="chip">Build a website</span>
       </div>
       <button class="card-toggle" onclick="toggleCard(this)">
@@ -624,23 +626,52 @@
       </button>
       <div class="card-details">
         <div class="details-inner">
-          <p class="details-desc">This orientation course gives students a picture of the AI landscape before they write a single line of code. They'll learn how large language models actually work, where AI falls short, and what roles make up a modern software team. Finally, students put it all together by building and publishing their first AI-assisted website.</p>
+          <p class="details-desc">The Introduction to AI Product Development course orients students to the world of AI-powered software development before any technical work begins. Students get a plain-language introduction to how AI systems work — what they are doing when they generate text, code, or decisions, and where they commonly fall short. The course also maps out what a modern technology company looks like: the roles on a product team and how those roles collaborate. The course closes with every student publishing a simple website built almost entirely with AI assistance — their first proof that they can already make something real.</p>
           <div class="details-label">Course objectives</div>
           <ul class="details-objectives">
-            <li>Explain how large language models generate output and where that process can go wrong</li>
-            <li>Identify the capabilities and real-world limitations of current AI tools</li>
-            <li>Describe the roles on a software product team and how they collaborate</li>
-            <li>Write clear, effective prompts to direct AI tools toward a specific outcome</li>
-            <li>Build and publish a basic website using AI-assisted development</li>
+            <li>Explain in plain language how AI systems generate outputs and where they commonly fail.</li>
+            <li>Identify the key roles on a software product team and describe how they collaborate.</li>
+            <li>Describe how a technology organization is structured and where individual roles fit within it.</li>
+            <li>Use AI tools to plan, build, and publish a simple website without prior technical experience.</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="course-card">
-      <div class="card-code">3 credits &nbsp;·&nbsp; 90 hours</div>
+      <div class="card-code">TEAI 1010 &nbsp;·&nbsp; 2 credits &nbsp;·&nbsp; 60 hours</div>
+      <div class="card-title">Product Thinking and Planning</div>
+      <p class="card-tagline">Learn how digital products actually come to be before you specialize in building them.</p>
+      <div class="chip-label">What students learn</div>
+      <div class="chips">
+        <span class="chip">Product lifecycle</span>
+        <span class="chip">User stories</span>
+        <span class="chip">Requirements gathering</span>
+        <span class="chip">Prioritization</span>
+        <span class="chip">Scoping</span>
+      </div>
+      <button class="card-toggle" onclick="toggleCard(this)">
+        View course details <span class="chevron">▼</span>
+      </button>
+      <div class="card-details">
+        <div class="details-inner">
+          <p class="details-desc">The Product Thinking and Planning course introduces the product development lifecycle from idea to launch: identifying a real user problem worth solving, gathering and prioritizing requirements, and translating a rough idea into a plan a team can act on. Students learn to write user stories and acceptance criteria and use a basic prioritization framework to decide what to build first and what to leave out. The course closes with each student producing a one-page product brief for an idea of their own.</p>
+          <div class="details-label">Course objectives</div>
+          <ul class="details-objectives">
+            <li>Describe the stages of a typical product development lifecycle from idea to launch.</li>
+            <li>Identify a real user problem and articulate why it is worth solving.</li>
+            <li>Write clear user stories and acceptance criteria.</li>
+            <li>Gather, prioritize, and scope product requirements using a basic prioritization framework.</li>
+            <li>Produce a one-page product brief that translates an idea into an actionable plan.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <div class="card-code">TEAI 1020 &nbsp;·&nbsp; 2 credits &nbsp;·&nbsp; 60 hours</div>
       <div class="card-title">Software Systems and Architecture</div>
-      <p class="card-tagline">Learn to read software before you build it, how systems are designed, wired together, and why.</p>
+      <p class="card-tagline">Take your product brief and design the system behind it before you write any code.</p>
       <div class="chip-label">What students learn</div>
       <div class="chips">
         <span class="chip">Computer architecture</span>
@@ -654,30 +685,31 @@
       </button>
       <div class="card-details">
         <div class="details-inner">
-          <p class="details-desc">Before students can build software confidently, they need to understand how it actually works under the hood. This course covers the conceptual foundations from how a computer processes instructions to how data moves across the internet. This foundation sets students up so they can make informed decisions when designing and building their own systems.</p>
+          <p class="details-desc">The Software Systems and Architecture course builds the conceptual foundation every student needs before writing code. Students explore how computers process and store information, learn core data structures, develop a working understanding of how the internet functions, and study the design patterns and data modeling principles that shape how real software is architected. Rather than analyzing an arbitrary app, the course project has students take a product idea of their own and produce the architectural plan for it: the data model, the API surface, the client-server structure, and how information would need to move through the system end to end. The goal is to build the habit of designing before building. Responsible data practices are introduced here too, with attention to what the proposed product would collect, why, and what students are accountable for as its future developers.</p>
           <div class="details-label">Course objectives</div>
           <ul class="details-objectives">
-            <li>Describe how computer hardware components work together to run software</li>
-            <li>Identify common data structures and explain when each is appropriate</li>
-            <li>Trace a web request from browser to server and back, naming each step</li>
-            <li>Read and use a REST API, including authentication and JSON data handling</li>
-            <li>Recognize data privacy risks and apply basic mitigation strategies</li>
+            <li>Demonstrate understanding of computer architecture, memory, storage, and operating system concepts.</li>
+            <li>Apply common data structures to organize and manage information in a program.</li>
+            <li>Explain how the internet works, including HTTP, DNS, and client-server communication, and how APIs move data between services.</li>
+            <li>Apply software design patterns and data modeling principles to plan how a system should be structured.</li>
+            <li>Produce an architectural plan for a product idea, including its data model, API surface, and system boundaries.</li>
+            <li>Identify responsible data collection practices and describe the privacy implications of design decisions.</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="course-card">
-      <div class="card-code">4 credits &nbsp;·&nbsp; 120 hours</div>
+      <div class="card-code">TEAI 1030 &nbsp;·&nbsp; 3 credits &nbsp;·&nbsp; 90 hours</div>
       <div class="card-title">Software Development with AI</div>
-      <p class="card-tagline">Go from understanding systems to building them, two real projects using AI as a core tool.</p>
+      <p class="card-tagline">Go from plan to working system, two real projects using AI as a core tool.</p>
       <div class="chip-label">What students learn</div>
       <div class="chips">
         <span class="chip">Dev environment setup</span>
         <span class="chip">Write real code</span>
         <span class="chip">AI coding assistants</span>
         <span class="chip">Prompt engineering</span>
-        <span class="chip">Evaluate AI output</span>
+        <span class="chip">Testing AI output</span>
         <span class="chip">Ship projects</span>
       </div>
       <button class="card-toggle" onclick="toggleCard(this)">
@@ -685,21 +717,24 @@
       </button>
       <div class="card-details">
         <div class="details-inner">
-          <p class="details-desc">This is where students start writing real software. They set up a professional development environment, learn to code in a modern language, and use AI coding assistants as everyday tools rather than shortcuts. The course culminates in two complete projects, one guided and one independent, that students can add to a portfolio.</p>
+          <p class="details-desc">The Software Development with AI course is where students go from a plan to a working system. Students set up a professional development environment, write code in a general-purpose programming language, and use AI coding assistants and prompt engineering as core tools rather than shortcuts. The course is built around two projects. The first, completed early, is scoped to establish foundational skills: students build a working application that solves a defined, familiar problem. The second is a self-directed final project, where students design and build out a product of their own. Throughout both projects, students critically evaluate the code AI produces, write tests to verify that AI-generated code actually does what it claims before it ships, and practice the judgment to know when to trust AI output and when to rewrite it. Ethical use is embedded in both projects through the principle that the developer is responsible for everything they ship, regardless of how it was written.</p>
           <div class="details-label">Course objectives</div>
           <ul class="details-objectives">
-            <li>Configure a local development environment including terminal, editor, and version control</li>
-            <li>Use AI coding assistants to accelerate development</li>
-            <li>Craft precise prompts that produce accurate, usable code from an AI model</li>
-            <li>Review AI-generated code to verify it behaves as intended</li>
-            <li>Manage a project with Git and deliver two complete, deployable software projects</li>
+            <li>Set up and navigate a professional software development environment including version control.</li>
+            <li>Write and organize code using a general-purpose programming language.</li>
+            <li>Use AI coding assistants and prompt engineering to accelerate development without sacrificing understanding.</li>
+            <li>Critically evaluate AI-generated code for correctness, security, and appropriateness before shipping.</li>
+            <li>Write tests to verify that AI-generated code behaves as intended before it ships.</li>
+            <li>Build and deploy a scoped application that solves a defined, familiar problem using AI assistance.</li>
+            <li>Design, build, and present a self-directed final project that turns a product idea into a working system.</li>
+            <li>Articulate the developer's ethical responsibility for AI-assisted output.</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="course-card">
-      <div class="card-code">4 credits &nbsp;·&nbsp; 120 hours</div>
+      <div class="card-code">TEAI 1040 &nbsp;·&nbsp; 4 credits &nbsp;·&nbsp; 120 hours</div>
       <div class="card-title">AI Agents and Automation</div>
       <p class="card-tagline">Design and deploy agentic AI systems from no-code workflows to full agent frameworks.</p>
       <div class="chip-label">What students learn</div>
@@ -716,20 +751,192 @@
       </button>
       <div class="card-details">
         <div class="details-inner">
-          <p class="details-desc">Students move beyond writing code that runs once and start building systems that act on their own. Starting with no-code automation tools and progressing to full agent frameworks, this course teaches how to design AI-driven workflows that connect services, make decisions, and run with minimal human involvement.</p>
+          <p class="details-desc">The AI Agents and Automation course teaches students to design, build, and deploy agentic AI systems and automated workflows. Starting with no-code and low-code platforms, students progressively work with direct API integrations and agent frameworks to build systems that take real actions on behalf of users. The course covers how agents perceive inputs, reason through tasks, and produce outputs; how to design and sequence multi-step agentic workflows; and how to evaluate and debug agent behavior in production. Ethical considerations are central throughout: students examine the risks of autonomous systems, determine when human oversight is required, build appropriate guardrails, and reason through what accountability looks like when an agent makes a mistake that affects a real person.</p>
           <div class="details-label">Course objectives</div>
           <ul class="details-objectives">
-            <li>Build multi-step automations using no-code tools that connect real services</li>
-            <li>Integrate external APIs and webhooks into automated workflows</li>
-            <li>Design an agentic system with clear goals, tools, and decision logic</li>
-            <li>Implement a working agent using a modern agent framework</li>
-            <li>Test, debug, and monitor an agent's behavior in a production-like environment</li>
-            <li>Evaluate an AI system for safety, bias, and unintended consequences</li>
+            <li>Build automated workflows using no-code and low-code platforms.</li>
+            <li>Connect applications and services using APIs, webhooks, and event triggers.</li>
+            <li>Explain how AI agents perceive inputs, reason through tasks, and produce outputs.</li>
+            <li>Design and implement a multi-step agentic workflow using an agent framework.</li>
+            <li>Evaluate and debug agent behavior using logging, testing, and prompt refinement.</li>
+            <li>Identify failure modes of autonomous systems and implement appropriate guardrails.</li>
+            <li>Apply human-in-the-loop design patterns in contexts where oversight is required.</li>
+            <li>Articulate an accountability framework for agentic systems that affect real users.</li>
           </ul>
         </div>
       </div>
     </div>
 
+  </div>
+
+  <!-- DESIGN TRACK COURSES -->
+  <div class="section-label" style="margin-top: 0;">
+    <span class="tag" style="font-size: 0.85rem; padding: 8px 22px;">Design Track Courses</span>
+  </div>
+  <p class="section-sub">Specialization track completed after the foundation core &nbsp;·&nbsp; 360 hours &nbsp;·&nbsp; 12 credits</p>
+
+  <div class="courses-grid">
+
+    <div class="course-card">
+      <div class="card-code">TEAI 2000 &nbsp;·&nbsp; 2 credits &nbsp;·&nbsp; 60 hours</div>
+      <div class="card-title">UX Foundations and Human-Centered Design</div>
+      <p class="card-tagline">Turn a product problem into personas, journey maps, and wireframes.</p>
+      <div class="chip-label">What students learn</div>
+      <div class="chips">
+        <span class="chip">Human-centered design</span>
+        <span class="chip">Personas</span>
+        <span class="chip">Journey maps</span>
+        <span class="chip">Information architecture</span>
+        <span class="chip">Wireframes</span>
+      </div>
+      <button class="card-toggle" onclick="toggleCard(this)">
+        View course details <span class="chevron">▼</span>
+      </button>
+      <div class="card-details">
+        <div class="details-inner">
+          <p class="details-desc">The UX Foundations and Human-Centered Design course introduces the fundamentals of human-centered design: how to translate a user problem into personas and journey maps, how information architecture shapes usability, and how to communicate a design idea through low-fidelity wireframes before any visual polish is applied. Starting from a defined product problem, students develop personas, a user journey map, and a wireframed user flow.</p>
+          <div class="details-label">Course objectives</div>
+          <ul class="details-objectives">
+            <li>Explain the principles of human-centered design and why they shape product outcomes.</li>
+            <li>Develop personas and user journey maps from a defined product problem.</li>
+            <li>Apply information architecture principles to organize content and navigation.</li>
+            <li>Produce low-fidelity wireframes that communicate a user flow clearly.</li>
+            <li>Define a product problem and translate it into a UX foundation for further design work.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <div class="card-code">TEAI 2010 &nbsp;·&nbsp; 3 credits &nbsp;·&nbsp; 90 hours</div>
+      <div class="card-title">AI-Assisted UI, Visual Design, and Prototyping</div>
+      <p class="card-tagline">Go from wireframe to a polished, clickable prototype with AI design tools as a partner.</p>
+      <div class="chip-label">What students learn</div>
+      <div class="chips">
+        <span class="chip">Visual design</span>
+        <span class="chip">AI design tools</span>
+        <span class="chip">Accessibility</span>
+        <span class="chip">Responsive design</span>
+        <span class="chip">Interactive prototypes</span>
+      </div>
+      <button class="card-toggle" onclick="toggleCard(this)">
+        View course details <span class="chevron">▼</span>
+      </button>
+      <div class="card-details">
+        <div class="details-inner">
+          <p class="details-desc">The AI-Assisted UI, Visual Design, and Prototyping course takes students from wireframe to a working, high-fidelity prototype. Students learn core visual design principles — typography, color, layout, and hierarchy — and pair them with AI-powered design tools to generate, iterate, and refine interface concepts faster than manual design alone allows. The course also covers accessibility standards (WCAG basics) and responsive design across device sizes. From there, students build interactive, clickable prototypes that simulate real product behavior, turning static screens into something that feels and behaves like a working product. Students produce a polished, high-fidelity, interactive prototype for a wireframed user flow, using AI tools as a drafting and iteration partner rather than a replacement for design judgment.</p>
+          <div class="details-label">Course objectives</div>
+          <ul class="details-objectives">
+            <li>Apply typography, color, layout, and visual hierarchy principles to interface design.</li>
+            <li>Use AI-assisted design tools to generate and iterate on interface concepts.</li>
+            <li>Design responsive layouts that adapt across common device sizes.</li>
+            <li>Apply WCAG accessibility basics to color contrast, text sizing, and interactive elements.</li>
+            <li>Critically evaluate AI-generated design output and revise it to meet usability and brand standards.</li>
+            <li>Build interactive, clickable prototypes that simulate real product behavior.</li>
+            <li>Produce a high-fidelity, interactive prototype for a wireframed user flow.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <div class="card-code">TEAI 2020 &nbsp;·&nbsp; 2 credits &nbsp;·&nbsp; 60 hours</div>
+      <div class="card-title">Design Systems</div>
+      <p class="card-tagline">Design at scale with reusable components, tokens, and documentation ready for handoff.</p>
+      <div class="chip-label">What students learn</div>
+      <div class="chips">
+        <span class="chip">Components</span>
+        <span class="chip">Design tokens</span>
+        <span class="chip">Patterns</span>
+        <span class="chip">Documentation</span>
+        <span class="chip">Engineering handoff</span>
+      </div>
+      <button class="card-toggle" onclick="toggleCard(this)">
+        View course details <span class="chevron">▼</span>
+      </button>
+      <div class="card-details">
+        <div class="details-inner">
+          <p class="details-desc">The Design Systems course teaches students to design at scale rather than screen by screen. Students learn to identify what belongs in a shared design system versus what stays a one-off decision, then build that system out: reusable components, design tokens, and documented patterns that keep a product consistent as it grows. The course also covers how to prepare a design system for handoff to engineering, with clear specs, usage guidelines, and annotations a development team can act on without guessing. Students build a small component library from a high-fidelity interface, complete with documentation ready for handoff.</p>
+          <div class="details-label">Course objectives</div>
+          <ul class="details-objectives">
+            <li>Explain the purpose and structure of a design system, including components, tokens, and patterns.</li>
+            <li>Identify which interface elements belong in a shared system versus a one-off design.</li>
+            <li>Build a reusable component library from an existing product interface.</li>
+            <li>Document component usage guidelines and design specifications.</li>
+            <li>Prepare a design system for handoff to engineering teams.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <div class="card-code">TEAI 2030 &nbsp;·&nbsp; 3 credits &nbsp;·&nbsp; 90 hours</div>
+      <div class="card-title">User Research and Usability Testing</div>
+      <p class="card-tagline">Validate design decisions with real users instead of assumptions.</p>
+      <div class="chip-label">What students learn</div>
+      <div class="chips">
+        <span class="chip">Research methods</span>
+        <span class="chip">Usability testing</span>
+        <span class="chip">Recruiting participants</span>
+        <span class="chip">AI-assisted analysis</span>
+        <span class="chip">Findings reports</span>
+      </div>
+      <button class="card-toggle" onclick="toggleCard(this)">
+        View course details <span class="chevron">▼</span>
+      </button>
+      <div class="card-details">
+        <div class="details-inner">
+          <p class="details-desc">The User Research and Usability Testing course teaches students to validate design decisions with real users instead of assumptions. Students learn common research methods — interviews, surveys, and moderated usability testing — and how to choose the right method for a given question. The course covers how to write a research plan, recruit representative participants, and run a testing session without leading the user. Students run testing across multiple rounds against an interactive prototype and a set of interface components, revising their materials between rounds based on what they learn. Students also learn how AI tools can accelerate analysis of qualitative data (interview transcripts, survey responses) while examining where that automation introduces bias or loses nuance. The course closes with a findings report that translates research into prioritized, actionable design recommendations.</p>
+          <div class="details-label">Course objectives</div>
+          <ul class="details-objectives">
+            <li>Select an appropriate research method for a given design question.</li>
+            <li>Write a research plan and recruit representative participants.</li>
+            <li>Conduct a moderated usability test without leading or biasing the participant.</li>
+            <li>Test an interactive prototype and design system components with real users across multiple rounds.</li>
+            <li>Synthesize qualitative research data into clear, prioritized findings.</li>
+            <li>Use AI tools to accelerate analysis of research data while identifying where automation introduces bias.</li>
+            <li>Produce a usability findings report with actionable recommendations for the prototype and design system.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <div class="card-code">TEAI 2040 &nbsp;·&nbsp; 2 credits &nbsp;·&nbsp; 60 hours</div>
+      <div class="card-title">Product Management, Roadmapping, and Agile Practice</div>
+      <p class="card-tagline">Manage a product over time, from backlog to roadmap to stakeholder pitch.</p>
+      <div class="chip-label">What students learn</div>
+      <div class="chips">
+        <span class="chip">Roadmapping</span>
+        <span class="chip">Backlogs</span>
+        <span class="chip">Agile ceremonies</span>
+        <span class="chip">Stakeholders</span>
+        <span class="chip">Final presentation</span>
+      </div>
+      <button class="card-toggle" onclick="toggleCard(this)">
+        View course details <span class="chevron">▼</span>
+      </button>
+      <div class="card-details">
+        <div class="details-inner">
+          <p class="details-desc">The Product Management, Roadmapping, and Agile Practice course zooms out from individual screens to the practice of managing a product over time. Students learn how product managers build and prioritize roadmaps, balance stakeholder input against user needs, and translate design and research work into a backlog a development team can execute. The course covers agile ceremonies (standups, sprint planning, retrospectives) and how designers operate inside them, plus how to pitch a product vision to stakeholders. Students close the course by assembling their own design and research work — personas, prototype, design system, and usability findings — into a product roadmap and a final stakeholder presentation.</p>
+          <div class="details-label">Course objectives</div>
+          <ul class="details-objectives">
+            <li>Explain how product roadmaps are built, prioritized, and communicated to stakeholders.</li>
+            <li>Translate design and research work into a backlog of actionable items for a development team.</li>
+            <li>Participate in agile ceremonies and describe the designer's role within them.</li>
+            <li>Balance competing stakeholder priorities against user needs in product decisions.</li>
+            <li>Assemble personas, design work, and usability findings into a cohesive product roadmap and stakeholder presentation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DOWNLOAD -->
+  <div class="download-cta">
+    <a class="download-btn" href="ai-product-development-courses.pdf" download>Download Course Descriptions (PDF)</a>
+    <p class="download-note">All core and design track courses with full descriptions and objectives.</p>
   </div>
 </div>
 
@@ -737,7 +944,7 @@
   <div class="footer-logo">
     <img src="https://mtec.edu/wp-content/uploads/2021/10/MTECH_full-logo.svg" alt="MTECH" />
   </div>
-  <strong>AI Product Development Program</strong> &nbsp;·&nbsp; 360-Hour Foundation Core + 300-Hour Specialization Track &nbsp;·&nbsp; 660 Hours Total
+  <strong>AI Product Development Program</strong> &nbsp;·&nbsp; 360-Hour Foundation Core + 360-Hour Specialization Track &nbsp;·&nbsp; 720 Hours Total
 </footer>
 
 <script>
