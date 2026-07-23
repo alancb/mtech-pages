@@ -444,22 +444,60 @@
       text-align: center;
       padding-bottom: 72px;
     }
-    .download-btn {
-      display: inline-block;
-      background: var(--maroon);
-      color: #fff;
-      border-radius: 8px;
-      padding: 12px 26px;
-      font-size: 0.85rem;
+    .download-heading {
+      font-size: 1.1rem;
       font-weight: 700;
-      text-decoration: none;
-      transition: background 0.15s;
+      color: var(--text-primary);
+      margin-bottom: 4px;
     }
-    .download-btn:hover { background: var(--maroon-dark); }
     .download-note {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 22px;
+    }
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(190px, 260px));
+      gap: 14px;
+      justify-content: center;
+    }
+    @media (max-width: 640px) {
+      .download-grid { grid-template-columns: 1fr; }
+    }
+    .download-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--maroon);
+      color: var(--text-primary);
+      border-radius: 8px;
+      padding: 16px 20px;
+      text-decoration: none;
+      transition: box-shadow 0.15s, transform 0.15s;
+    }
+    .download-btn:hover {
+      box-shadow: 0 6px 20px rgba(109, 0, 32, 0.12);
+      transform: translateY(-2px);
+    }
+    .download-btn.download-all {
+      grid-column: 1 / -1;
+      border-left: none;
+      border-top: 4px solid var(--maroon);
+      background: var(--maroon-lighter);
+    }
+    .download-btn-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--maroon);
+    }
+    .download-btn-sub {
       font-size: 0.75rem;
       color: var(--text-secondary);
-      margin-top: 8px;
+      margin-top: 3px;
+      font-weight: 500;
     }
 
     /* ── FOOTER ── */
@@ -933,6 +971,177 @@
 
   </div>
 
+  <!-- WEB TRACK COURSES -->
+  <div class="section-label" style="margin-top: 0;">
+    <span class="tag" style="font-size: 0.85rem; padding: 8px 22px;">Web Track Courses</span>
+  </div>
+  <p class="section-sub">Specialization track completed after the foundation core &nbsp;·&nbsp; 360 hours &nbsp;·&nbsp; 12 credits</p>
+
+  <div class="courses-grid">
+
+    <div class="course-card">
+      <div class="card-code">2 credits &nbsp;·&nbsp; 60 hours</div>
+      <div class="card-title">Modern Front-End, AI-Accelerated</div>
+      <p class="card-tagline">Build the browser platform itself, semantic HTML, CSS, and typed JavaScript, before any framework.</p>
+      <div class="chip-label">What students learn</div>
+      <div class="chips">
+        <span class="chip">HTML &amp; CSS</span>
+        <span class="chip">Responsive layout</span>
+        <span class="chip">JavaScript &amp; TypeScript</span>
+        <span class="chip">Live data</span>
+        <span class="chip">Browser dev tools</span>
+        <span class="chip">Accessibility</span>
+      </div>
+      <button class="card-toggle" onclick="toggleCard(this)">
+        View course details <span class="chevron">▼</span>
+      </button>
+      <div class="card-details">
+        <div class="details-inner">
+          <p class="details-desc">The Modern Front-End, AI-Accelerated course teaches students to build the browser platform before adopting a framework. Building on the shared core's programming fundamentals, HTTP, Git workflow, and AI-assisted development practices, students create semantic, responsive, and accessible interfaces with HTML, CSS, JavaScript, and TypeScript, and connect those interfaces to live web services. Students use browser developer tools to debug, audit, and improve real application behavior, with checkpoints requiring them to critique, correct, test, and justify AI-generated code.</p>
+          <div class="details-label">Course objectives</div>
+          <ul class="details-objectives">
+            <li>Build semantic, accessible HTML and implement responsive layouts using the box model, Flexbox, Grid, media and container queries, and reusable design tokens.</li>
+            <li>Write modular, typed client-side code in JavaScript and TypeScript using functions, objects, arrays, modules, events, promises, and async/await.</li>
+            <li>Connect pages to live data from web services and handle loading, empty, success, and error states without losing a user's work.</li>
+            <li>Build accessible, validated forms while distinguishing client-side convenience validation from server-side security controls.</li>
+            <li>Debug client-side applications using browser developer tools and write unit tests for deterministic logic.</li>
+            <li>Evaluate AI-assisted code against product requirements, tests, accessibility, security, and licensing expectations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <div class="card-code">3 credits &nbsp;·&nbsp; 90 hours</div>
+      <div class="card-title">React &amp; Component Architecture</div>
+      <p class="card-tagline">Turn product requirements into multi-route React apps with reusable components and live data.</p>
+      <div class="chip-label">What students learn</div>
+      <div class="chips">
+        <span class="chip">React</span>
+        <span class="chip">Component design</span>
+        <span class="chip">State management</span>
+        <span class="chip">Routing &amp; auth</span>
+        <span class="chip">API integration</span>
+        <span class="chip">AI features</span>
+      </div>
+      <button class="card-toggle" onclick="toggleCard(this)">
+        View course details <span class="chevron">▼</span>
+      </button>
+      <div class="card-details">
+        <div class="details-inner">
+          <p class="details-desc">The React &amp; Component Architecture course has students use React and TypeScript to transform product requirements into multi-route web applications. Students design reusable component systems, manage local and shared state, build accessible forms, implement client-side navigation and authentication workflows, and connect applications to live APIs and external services. They test applications from the user's perspective, measure and improve performance, safely refactor existing code, and apply core AI competencies by building an AI-powered interface with streaming responses and meaningful user controls.</p>
+          <div class="details-label">Course objectives</div>
+          <ul class="details-objectives">
+            <li>Design maintainable component architectures by breaking product requirements into organized, reusable React components.</li>
+            <li>Manage application state and behavior using React hooks, predictable data flow, Context, and appropriate state-management patterns.</li>
+            <li>Build complete multi-route applications with client-side navigation, authentication workflows, protected routes, and accessible forms.</li>
+            <li>Integrate live APIs and external services while handling loading, empty, success, optimistic updates, validation, and error states.</li>
+            <li>Write user-focused tests, measure application performance, and implement evidence-based improvements.</li>
+            <li>Review code, communicate architectural decisions, and safely refactor duplicated or difficult-to-maintain code.</li>
+            <li>Develop responsible AI-powered features that support streaming responses, cancellation, error recovery, and meaningful user control.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <div class="card-code">3 credits &nbsp;·&nbsp; 90 hours</div>
+      <div class="card-title">Back-End &amp; API Engineering</div>
+      <p class="card-tagline">Design secure, production-oriented server apps with Node, Express, and PostgreSQL.</p>
+      <div class="chip-label">What students learn</div>
+      <div class="chips">
+        <span class="chip">Node.js</span>
+        <span class="chip">REST APIs</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">Auth &amp; security</span>
+        <span class="chip">Testing &amp; logging</span>
+        <span class="chip">Firebase</span>
+      </div>
+      <button class="card-toggle" onclick="toggleCard(this)">
+        View course details <span class="chevron">▼</span>
+      </button>
+      <div class="card-details">
+        <div class="details-inner">
+          <p class="details-desc">The Back-End &amp; API Engineering course has students design and implement secure, production-oriented server applications using Node.js, TypeScript, Express, and PostgreSQL. Students model relational data, develop documented REST APIs, validate untrusted input, implement authentication and authorization, and diagnose failures through structured logging and automated tests. Students then compare that relational architecture with Firebase and Firestore, and securely integrate an AI service behind a protected server boundary with credential protection, validation, rate and cost controls, and user-safe fallback behavior.</p>
+          <div class="details-label">Course objectives</div>
+          <ul class="details-objectives">
+            <li>Explain the Node.js runtime environment, including asynchronous I/O, package management, and environment-based configuration.</li>
+            <li>Design, implement, and document RESTful APIs in TypeScript with typed routes, middleware, status codes, pagination, and an OpenAPI contract.</li>
+            <li>Model relational domains in PostgreSQL and write SQL for CRUD operations, joins, aggregates, and transactions; apply keys, constraints, normalization, and migrations.</li>
+            <li>Implement layered application security, including input validation, secure credential storage, session or token authentication, and least-privilege authorization.</li>
+            <li>Write unit and integration tests covering success, validation, authentication, authorization, and failure paths, and implement structured logging and health checks.</li>
+            <li>Build a Firestore feature with security rules, justify relational vs. document-database vs. backend-as-a-service tradeoffs, and integrate an AI service behind a secured boundary with rate, cost, and fallback controls.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <div class="card-code">2 credits &nbsp;·&nbsp; 60 hours</div>
+      <div class="card-title">Cloud, DevOps &amp; Web Security</div>
+      <p class="card-tagline">Deploy and operate a full-stack app in a repeatable, production-like cloud environment.</p>
+      <div class="chip-label">What students learn</div>
+      <div class="chips">
+        <span class="chip">Linux &amp; networking</span>
+        <span class="chip">Docker</span>
+        <span class="chip">AWS</span>
+        <span class="chip">CI/CD</span>
+        <span class="chip">OWASP Top 10</span>
+        <span class="chip">Monitoring</span>
+      </div>
+      <button class="card-toggle" onclick="toggleCard(this)">
+        View course details <span class="chevron">▼</span>
+      </button>
+      <div class="card-details">
+        <div class="details-inner">
+          <p class="details-desc">The Cloud, DevOps &amp; Web Security course has students deploy and operate a full-stack application in a repeatable, production-like cloud environment. They apply Linux and networking fundamentals, containerize multi-service applications with Docker, configure a focused AWS deployment architecture, build automated CI/CD pipelines with GitHub Actions, and implement monitoring and recovery practices. Security, accessibility, performance, search discoverability, AI-service reliability, and cost awareness are treated as measurable release requirements rather than afterthoughts.</p>
+          <div class="details-label">Course objectives</div>
+          <ul class="details-objectives">
+            <li>Diagnose application delivery problems using Linux command-line, process, file-permission, environment, port, DNS, and HTTP/TLS concepts.</li>
+            <li>Construct production-oriented container images and deploy a containerized web application and database with Docker and Docker Compose across development, test, and production configurations.</li>
+            <li>Configure secure AWS environments applying identity and access management, least-privilege principles, domains, DNS, HTTPS, and secrets management.</li>
+            <li>Build an automated CI/CD pipeline with GitHub Actions that installs, lints, tests, scans, builds, and deploys the application, with health checks, logging, and a documented rollback procedure.</li>
+            <li>Identify and remediate representative OWASP Top 10 security risks, including access control, injection, authentication, and supply-chain failures.</li>
+            <li>Evaluate release readiness against a production gate covering accessibility, Core Web Vitals, caching, SEO, error handling, and AI-integration monitoring.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <div class="card-code">2 credits &nbsp;·&nbsp; 60 hours</div>
+      <div class="card-title">Capstone &amp; Career Launch</div>
+      <p class="card-tagline">Deliver and defend a deployed full-stack product, then turn it into an employer-ready portfolio.</p>
+      <div class="chip-label">What students learn</div>
+      <div class="chips">
+        <span class="chip">Team capstone</span>
+        <span class="chip">Product brief</span>
+        <span class="chip">Vertical slices</span>
+        <span class="chip">Testing &amp; CI/CD</span>
+        <span class="chip">Portfolio</span>
+        <span class="chip">Interview prep</span>
+      </div>
+      <button class="card-toggle" onclick="toggleCard(this)">
+        View course details <span class="chevron">▼</span>
+      </button>
+      <div class="card-details">
+        <div class="details-inner">
+          <p class="details-desc">The Capstone &amp; Career Launch course has teams of two synthesize the competencies of the full program by delivering and defending a deployed full-stack product while maintaining documented evidence of individual contribution. Students validate the problem, refine requirements, define acceptance criteria, and determine how AI contributes to the product's value, managing work through issues, pull requests, and architecture decisions. Career preparation converts the capstone into an employer-ready portfolio and develops the code-review, debugging, and interviewing skills expected of entry-level developers.</p>
+          <div class="details-label">Course objectives</div>
+          <ul class="details-objectives">
+            <li>Convert an ambiguous stakeholder problem into a bounded product brief with a prioritized backlog, acceptance criteria, data model, and delivery plan.</li>
+            <li>Justify and document proportionate architecture decisions and execute them through a professional team workflow of small issues, branches, and code review.</li>
+            <li>Construct an accessible and responsive React and TypeScript client integrated with a documented, secure, data-backed API and a bounded AI capability, delivered as complete vertical slices.</li>
+            <li>Validate the product through unit, component, integration, and end-to-end tests, and deploy through a CI/CD pipeline with verified security, accessibility, and recovery procedures.</li>
+            <li>Prioritize defects and technical debt by user impact, risk, effort, and release timing, and defend individual code contributions, including AI-assisted work.</li>
+            <li>Present an employer-ready professional portfolio and demonstrate entry-level interview competencies through live coding, code review, and behavioral examples.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <!-- iOS TRACK COURSES -->
   <div class="section-label" style="margin-top: 0;">
     <span class="tag" style="font-size: 0.85rem; padding: 8px 22px;">iOS Track Courses</span>
@@ -1106,8 +1315,26 @@
 
   <!-- DOWNLOAD -->
   <div class="download-cta">
-    <a class="download-btn" href="ai-product-development-courses.pdf" download>Download Course Descriptions (PDF)</a>
-    <p class="download-note">All core, design track, and iOS track courses with full descriptions and objectives.</p>
+    <div class="download-heading">Download Course Descriptions</div>
+    <p class="download-note">Each emphasis PDF includes the foundation core plus that track's courses, with full descriptions and objectives.</p>
+    <div class="download-grid">
+      <a class="download-btn" href="ai-product-development-design.pdf" download>
+        <span class="download-btn-title">Design Emphasis</span>
+        <span class="download-btn-sub">Foundation core + design track</span>
+      </a>
+      <a class="download-btn" href="ai-product-development-web.pdf" download>
+        <span class="download-btn-title">Web Emphasis</span>
+        <span class="download-btn-sub">Foundation core + web track</span>
+      </a>
+      <a class="download-btn" href="ai-product-development-ios.pdf" download>
+        <span class="download-btn-title">iOS Emphasis</span>
+        <span class="download-btn-sub">Foundation core + iOS track</span>
+      </a>
+      <a class="download-btn download-all" href="ai-product-development-full.pdf" download>
+        <span class="download-btn-title">Complete Program</span>
+        <span class="download-btn-sub">Every core, design, web, and iOS course in a single PDF</span>
+      </a>
+    </div>
   </div>
 </div>
 
