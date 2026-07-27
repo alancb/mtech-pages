@@ -79,6 +79,11 @@ def P(text, style):
     return Paragraph(escape(text), style)
 
 
+def normalize(text):
+    """Drop em dashes to match the house style (period + capitalized next word)."""
+    return re.sub(r'\s*—\s*(\w)', lambda m: ". " + m.group(1).upper(), text)
+
+
 # ── markdown parsing ──
 def parse(path):
     text = path.read_text()
@@ -110,7 +115,35 @@ def parse(path):
     return label, courses
 
 
+def parse_program(path):
+    """Extract the track-level Program Description paragraphs and objectives.
+
+    Returns (paragraphs, objectives) or None when the file has no such section
+    (the core curriculum does not)."""
+    text = path.read_text()
+    m = re.search(r'##\s+Program Description\s*(.*?)(?=\n##\s|\Z)', text, re.S)
+    if not m:
+        return None
+    desc_part, _, obj_part = m.group(1).partition("Objectives:")
+    paras = []
+    for para in re.split(r'\n\s*\n', desc_part.strip()):
+        para = para.strip()
+        if not para:
+            continue
+        paras.append(normalize(" ".join(l.strip() for l in para.splitlines())))
+    objectives = []
+    for l in obj_part.strip().splitlines():
+        l = l.strip()
+        if l.startswith("- "):
+            objectives.append(normalize(l[2:].strip()))
+        elif l.startswith("---"):
+            break
+    return paras, objectives
+
+
 SECTIONS = {key: parse(PROJ / name) for key, name in FILES.items()}
+PROGRAMS = {key: parse_program(PROJ / FILES[key]) for key in ("design", "web", "ios")}
+TRACK_NAMES = {"design": "Design Emphasis", "web": "Web Emphasis", "ios": "iOS Emphasis"}
 
 
 # ── flowable builders ──
@@ -174,6 +207,16 @@ def course_block(title, credits, hours, desc, objectives):
     return KeepTogether(flow)
 
 
+def program_block(paras, objectives, heading):
+    flow = [P(heading, styles["sectionhead"])]
+    for para in paras:
+        flow.append(P(para, styles["body"]))
+    flow.append(P("Program Objectives:", styles["objhead"]))
+    for o in objectives:
+        flow.append(Paragraph(escape(o), styles["bullet"], bulletText="•"))
+    return flow
+
+
 class NumberedCanvas(pdfcanvas.Canvas):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -196,6 +239,15 @@ class NumberedCanvas(pdfcanvas.Canvas):
 
 def build(out_name, title, subtitle, section_keys):
     story = [P(title, styles["title"]), P(subtitle, styles["subtitle"])]
+    # program description(s): one per specialization track in this document
+    track_keys = [k for k in section_keys if k in PROGRAMS]
+    multi = len(track_keys) > 1
+    for key in track_keys:
+        paras, objectives = PROGRAMS[key]
+        heading = f"Program Description ({TRACK_NAMES[key]})" if multi else "Program Description"
+        story.extend(program_block(paras, objectives, heading))
+        story.append(Spacer(1, 12))
+    story.append(Spacer(1, 4))
     # summary tables
     for i, key in enumerate(section_keys):
         label, courses = SECTIONS[key]

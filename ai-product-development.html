@@ -439,6 +439,46 @@
       font-weight: 700;
     }
 
+    /* ── TRACK INTRO ── */
+    .track-intro {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--maroon);
+      border-radius: 10px;
+      padding: 24px 26px;
+      margin-bottom: 22px;
+    }
+    .track-intro-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .track-intro-desc:last-of-type { margin-bottom: 18px; }
+    .track-intro-objectives {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 26px;
+    }
+    @media (max-width: 640px) {
+      .track-intro-objectives { grid-template-columns: 1fr; }
+    }
+    .track-intro-objectives li {
+      font-size: 0.83rem;
+      color: var(--text-primary);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .track-intro-objectives li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--maroon);
+      font-weight: 700;
+    }
+
     /* ── DOWNLOAD CTA ── */
     .download-cta {
       text-align: center;
@@ -813,6 +853,21 @@
   </div>
   <p class="section-sub">Specialization track completed after the foundation core &nbsp;·&nbsp; 360 hours &nbsp;·&nbsp; 12 credits</p>
 
+  <div class="track-intro">
+    <p class="track-intro-desc">The AI Product Development program prepares students to build real software with AI as a core part of the development process, beginning with a shared foundation in programming, software architecture, and AI-assisted and agentic development. Students then specialize in a track. The Design emphasis introduces the fundamentals of human-centered design and product thinking, and provides comprehensive coverage of the work that shapes a product before a line of code is written. Students will leverage AI to accelerate design research, prototyping, and design-system work as a product designer. Students gain invaluable knowledge and experience with UX research, visual design, and product management practices.</p>
+    <p class="track-intro-desc">At the end of the program, student groups complete a professional portfolio project that they can showcase for potential employers when seeking employment.</p>
+    <div class="details-label">Program objectives</div>
+    <ul class="track-intro-objectives">
+      <li>Demonstrate the knowledge and skills necessary for entry-level employment in a product design or UX career.</li>
+      <li>Translate a user problem into personas, journey maps, and information architecture using human-centered design methods.</li>
+      <li>Build high-fidelity, accessible, and responsive interface prototypes, using AI-assisted design tools to generate and iterate on interface concepts.</li>
+      <li>Design and document a reusable design system, including components, tokens, and patterns, ready for handoff to engineering.</li>
+      <li>Plan and run usability research, including interviews, surveys, and moderated testing, and translate findings into prioritized design recommendations.</li>
+      <li>Collaborate with a team using agile ceremonies and product roadmapping practices to plan, prioritize, and communicate design work.</li>
+      <li>Prepare for industry entry by creating a professional portfolio, honing technical and behavioral interview skills, and effectively communicating design decisions to diverse audiences.</li>
+    </ul>
+  </div>
+
   <div class="courses-grid">
 
     <div class="course-card">
@@ -976,6 +1031,21 @@
     <span class="tag" style="font-size: 0.85rem; padding: 8px 22px;">Web Track Courses</span>
   </div>
   <p class="section-sub">Specialization track completed after the foundation core &nbsp;·&nbsp; 360 hours &nbsp;·&nbsp; 12 credits</p>
+
+  <div class="track-intro">
+    <p class="track-intro-desc">The AI Product Development program prepares students to build real software with AI as a core part of the development process, beginning with a shared foundation in programming, software architecture, and AI-assisted and agentic development. Students then specialize in a track. The Web emphasis introduces the fundamentals of full-stack web development and provides comprehensive coverage of front-end and back-end engineering. Students will leverage AI to assist in building and deploying production web applications as a web developer. Students gain invaluable knowledge and experience developing with React, TypeScript, Node.js, and other fundamental frameworks.</p>
+    <p class="track-intro-desc">At the end of the program, student groups complete a professional portfolio project that they can showcase for potential employers when seeking employment.</p>
+    <div class="details-label">Program objectives</div>
+    <ul class="track-intro-objectives">
+      <li>Demonstrate the knowledge and skills necessary for entry-level employment in a web development career.</li>
+      <li>Write modern, typed front-end code using AI-assisted development tools to build accessible, responsive interfaces with HTML, CSS, JavaScript, and TypeScript.</li>
+      <li>Build interactive, multi-route applications with React, managing state, routing, and live API integration.</li>
+      <li>Design and implement secure, documented back-end services and REST APIs backed by a relational database and cloud backends.</li>
+      <li>Navigate the complete software release lifecycle, including containerization, CI/CD pipelines, cloud deployment, and web security practices.</li>
+      <li>Collaborate with a team on software projects using Git and GitHub in agile sprint cycles to plan, build, ship, and demo production-ready applications.</li>
+      <li>Prepare for industry entry by creating a professional portfolio, honing technical and behavioral interview skills, and effectively communicating architectural and design decisions to diverse audiences.</li>
+    </ul>
+  </div>
 
   <div class="courses-grid">
 
@@ -1147,6 +1217,21 @@
     <span class="tag" style="font-size: 0.85rem; padding: 8px 22px;">iOS Track Courses</span>
   </div>
   <p class="section-sub">Specialization track completed after the foundation core &nbsp;·&nbsp; 360 hours &nbsp;·&nbsp; 12 credits</p>
+
+  <div class="track-intro">
+    <p class="track-intro-desc">The AI Product Development program prepares students to build real software with AI as a core part of the development process, beginning with a shared foundation in programming, software architecture, and AI-assisted and agentic development. Students then specialize in a track. The iOS emphasis introduces the fundamental concepts of mobile applications and provides comprehensive coverage of client-side development. Students will leverage AI to assist in developing interactive user experiences on iPhone as an iOS developer. Students gain invaluable knowledge and experience developing with Swift, SwiftUI, and other fundamental frameworks.</p>
+    <p class="track-intro-desc">At the end of the program, student groups complete a professional portfolio project that they can showcase for potential employers when seeking employment.</p>
+    <div class="details-label">Program objectives</div>
+    <ul class="track-intro-objectives">
+      <li>Demonstrate the knowledge and skills necessary for entry-level employment in an iOS App Development career.</li>
+      <li>Write idiomatic Swift code using modern language features and AI-assisted development tools to build robust, testable, and maintainable applications.</li>
+      <li>Build adaptive, accessible, and intuitive user interfaces with SwiftUI.</li>
+      <li>Develop data layers that handle networking, local persistence (SwiftData), and public API integration.</li>
+      <li>Navigate the complete software release lifecycle, including CI/CD pipelines, automated testing, and the App Store submission process.</li>
+      <li>Collaborate with a team on software projects using Git and GitHub in agile sprint cycles to plan, build, ship, and demo production-ready applications.</li>
+      <li>Prepare for industry entry by creating a professional portfolio, honing technical and behavioral interview skills, and effectively communicating architectural and design decisions to diverse audiences.</li>
+    </ul>
+  </div>
 
   <div class="courses-grid">
 
