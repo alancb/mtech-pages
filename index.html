@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MTECH — Shared Resources</title>
+  <title>MTECH: Shared Resources</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -77,11 +77,14 @@
 
     /* ── MAIN ── */
     .container {
+      width: 100%;
       max-width: 860px;
       margin: 0 auto;
       padding: 56px 24px 80px;
       flex: 1;
     }
+
+    .resource-section + .resource-section { margin-top: 40px; }
 
     .section-label {
       font-size: 0.72rem;
@@ -115,6 +118,10 @@
     .page-card:hover {
       box-shadow: 0 6px 24px rgba(0,0,0,0.09);
       border-left-color: var(--maroon-mid);
+    }
+    .page-card:focus-visible {
+      outline: 3px solid var(--maroon);
+      outline-offset: 4px;
     }
     .page-card-tag {
       font-size: 0.7rem;
@@ -167,19 +174,64 @@
 </section>
 
 <main class="container">
-  <div class="section-label">Published Pages</div>
-  <div class="pages-list">
+  <section class="resource-section" aria-labelledby="chatgpt-sites-heading">
+    <h2 class="section-label" id="chatgpt-sites-heading">ChatGPT Sites</h2>
+    <div class="pages-list">
 
-    <a class="page-card" href="ai-product-development.html">
-      <div class="page-card-body">
-        <div class="page-card-tag">Program · Technical Certificate</div>
-        <div class="page-card-title">AI Product Development</div>
-        <div class="page-card-desc">Overview of the 660-hour AI Product Development certificate program, including the core course sequence and three specialization tracks.</div>
-      </div>
-      <div class="page-card-arrow">→</div>
-    </a>
+      <a class="page-card" href="https://mtech-teach-students-how-to-learn.mountainland-7451.chatgpt.site">
+        <div class="page-card-body">
+          <div class="page-card-tag">Faculty Development · Workshop</div>
+          <h3 class="page-card-title">Teach Students How to Learn</h3>
+          <div class="page-card-desc">A workshop on student learning, motivation, and practical support, plus the Strategic Planning presentation for faculty and staff.</div>
+        </div>
+        <div class="page-card-arrow" aria-hidden="true">→</div>
+      </a>
 
-  </div>
+      <a class="page-card" href="https://canvas-safety-worksheet-demo.mountainland-7451.chatgpt.site">
+        <div class="page-card-body">
+          <div class="page-card-tag">Teaching Tool · Prototype</div>
+          <h3 class="page-card-title">Canvas Safety Worksheet Demo</h3>
+          <div class="page-card-desc">An interactive automotive safety worksheet with downloadable progress files and PDF export for submission in Canvas.</div>
+        </div>
+        <div class="page-card-arrow" aria-hidden="true">→</div>
+      </a>
+
+      <a class="page-card" href="https://mtech-reporting-timelines.mountainland-7451.chatgpt.site">
+        <div class="page-card-body">
+          <div class="page-card-tag">Coordinator Resources · Presentation</div>
+          <h3 class="page-card-title">Coordinator Meeting: September 2026</h3>
+          <div class="page-card-desc">Meeting slides covering CPL reporting, program change timelines, a ChatGPT Sites tech tip, and professional development.</div>
+        </div>
+        <div class="page-card-arrow" aria-hidden="true">→</div>
+      </a>
+
+      <a class="page-card" href="https://mtech-ai-product-development.mountainland-7451.chatgpt.site">
+        <div class="page-card-body">
+          <div class="page-card-tag">Program Planning · Presentation</div>
+          <h3 class="page-card-title">AI Product Development Vision</h3>
+          <div class="page-card-desc">A presentation on preparing students for AI product development through a shared foundation for product teams.</div>
+        </div>
+        <div class="page-card-arrow" aria-hidden="true">→</div>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="resource-section" aria-labelledby="published-pages-heading">
+    <h2 class="section-label" id="published-pages-heading">Published Pages</h2>
+    <div class="pages-list">
+
+      <a class="page-card" href="ai-product-development.html">
+        <div class="page-card-body">
+          <div class="page-card-tag">Program · Technical Certificate</div>
+          <div class="page-card-title">AI Product Development</div>
+          <div class="page-card-desc">Overview of the 660-hour AI Product Development certificate program, including the core course sequence and three specialization tracks.</div>
+        </div>
+        <div class="page-card-arrow">→</div>
+      </a>
+
+    </div>
+  </section>
 </main>
 
 <footer class="page-footer">
